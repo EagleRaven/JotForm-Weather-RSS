@@ -8,12 +8,15 @@ async function fetchRSSFeed(url) {
 
         const titles = xml.getElementsByTagName("title");
         for (let i = 0; i < titles.length; i++) {
-            headline.innerHTML = titles[i].textContent
+            headline.innerHTML = titles[i].textContent;
+        
         }
     } catch (error) {
         console.error("Error fetching the RSS feed:", error);
     }
 }
 
-const rssFeedUrl = "https://www.weather.gov/rss_page.php?site_name=ajk";
+
+
+const rssFeedUrl = "https://www.weather.gov/rss_page.php/?site_name=ajk";
 fetchRSSFeed(rssFeedUrl);
