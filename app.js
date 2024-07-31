@@ -1,3 +1,10 @@
+function refresh(){
+    location.reload();
+}
+
+setInterval(refresh, 3600000) // 1000 = 1 sec, 60000 = 1 min, 3600000 = 1 hour
+
+
 async function fetchRSSFeed(url) {
     const headline = document.getElementById("headline");
     try {
