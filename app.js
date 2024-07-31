@@ -6,11 +6,11 @@ async function fetchRSSFeed(url) {
         const parser = new DOMParser();
         const xml = parser.parseFromString(text, "application/xml");
 
-        const titles = xml.getElementsByTagName("title");
-        for (let i = 0; i < titles.length; i++) {
-            headline.innerHTML = titles[i].textContent;
-        
-        }
+        const titles = xml.getElementsByTagName("text");
+
+        headline.innerHTML = titles[0].textContent;
+
+
     } catch (error) {
         console.error("Error fetching the RSS feed:", error);
     }
@@ -18,5 +18,5 @@ async function fetchRSSFeed(url) {
 
 
 
-const rssFeedUrl = "https://www.weather.gov/rss_page.php/?site_name=ajk";
+const rssFeedUrl = "https://forecast.weather.gov/MapClick.php?lat=58.301&lon=-134.4246&unit=0&lg=english&FcstType=dwml";
 fetchRSSFeed(rssFeedUrl);
